@@ -7,16 +7,7 @@ class User{
     private $id;
     private $conexion;
 
-    /*function __construct($name, $id, $password){
-        $this->name = $name;
-        $this->id = $id;
-        $this->password = password_hash($password, PASSWORD_DEFAULT);
-    }*/
-
     function initConexion(){
-        /*$this->conexion = new ConectorBD("localhost", "root", "root");
-        $this->conexion->initConexion("serempre");*/
-
         $this->conexion = new ConectorBD();
         $this->conexion->initConexion();
     }

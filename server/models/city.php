@@ -8,9 +8,6 @@ class City{
     private $conexion;
 
     function initConexion(){
-        /*$this->conexion = new ConectorBD("localhost", "root", "root");
-        $this->conexion->initConexion("serempre");*/
-
         $this->conexion = new ConectorBD();
         $this->conexion->initConexion();
     }

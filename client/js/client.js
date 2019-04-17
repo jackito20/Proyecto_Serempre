@@ -223,6 +223,7 @@ function getCities(defaultCity=""){
         type: 'GET',
         success: (data) =>{
           if (data.msg=="OK") {
+            $("#inputCity").empty();
             data.cities.forEach(city => {
                 $("#inputCity").append("<option value='"+city.id+"'>"+city.name+"</option>");
             });
