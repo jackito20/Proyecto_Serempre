@@ -1,0 +1,17 @@
+
+
+#clientList{
+    padding: 2rem 6rem;
+}
+
+.dataClient{
+    height: 24rem;
+}
+
+.newClientHidden{
+    display: none !important;
+}
+
+.newClientShow{
+    display: ms flexbox !important;
+}

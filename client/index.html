@@ -7,33 +7,49 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/main.css">
+
     <title>Welcome</title>
 </head>
 <body>
     <div class="container-fluid">
-        <div class="row">
+        <div class="row header">
             <div class="col-6">
-                <ul class="nav nav-tabs">
+                <ul class="nav nav-tabs" id="menu" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Clientes</a>
+                      <a class="nav-link active" id="client-tab" data-toggle="tab" href="#client" role="tab" aria-controls="client" aria-selected="true">Clientes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Usuarios</a>
+                      <a class="nav-link" id="user-tab" data-toggle="tab" href="#user" role="tab" aria-controls="user" aria-selected="false">Usuarios</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Salir</a>
+                      <a class="nav-link" id="close-tab" data-toggle="tab" href="#close" role="tab" aria-controls="close" aria-selected="false">Salir</a>
                     </li>
                 </ul>
             </div>
         </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="tab-content" id="menuContent">
+                    <div class="tab-pane fade show active" id="client" role="tabpanel" aria-labelledby="client-tab"></div>
+                    <div class="tab-pane fade" id="user" role="tabpanel" aria-labelledby="user-tab">...</div>
+                    <div class="tab-pane fade" id="close" role="tabpanel" aria-labelledby="close-tab">...</div>
+                </div>            
+            </div>
+        </div>
     </div>
 
+
+    
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="./client/js/vendor/jquery.js"></script>
+    <script src="./js/vendor/jquery.js"></script>
+    
+    <!-- Optional JavaScript -->
+    <script src="./js/index.js"></script>
     
 </body>
 </html>
