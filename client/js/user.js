@@ -27,6 +27,7 @@ function formValidate(){
             success: (data) =>{
               if (data.msg=="OK") {
                 alert('The user was updated succesfully');
+                window.location.href = '../client/index.html';
               }else if(data.msg=="session"){
                 alert("No se ha iniciado sesion");
                 window.location.href = '../login.html';

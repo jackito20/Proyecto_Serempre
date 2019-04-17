@@ -29,5 +29,5 @@ function logOut(){
         error: function(){
           alert("Error");
         }
-      });
+    });
 }

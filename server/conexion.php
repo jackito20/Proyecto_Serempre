@@ -1,27 +1,42 @@
 <?php
+require('../config.php');
 
-
-  class ConectorBD
+class ConectorBD
   {
     private $host;
     private $user;
     private $password;
     private $conexion;
 
-    function __construct($host, $user, $password){
+    /*function __construct($host, $user, $password){
         $this->host = $host;
         $this->user = $user;
         $this->password = $password;
+    }*/
+
+    function __construct(){
+      $this->host = DB_HOST;
+      $this->user = DB_USER;
+      $this->password = DB_PASSWORD;
     }
 
-    function initConexion($nombre_db){
+    /*function initConexion($nombre_db){
         $this->conexion = new mysqli($this->host, $this->user, $this->password, $nombre_db);
         if ($this->conexion->connect_error) {
             return "Error:" . $this->conexion->connect_error;
         }else {
             return "OK";
         }
-    }
+    }*/
+
+    function initConexion(){
+      $this->conexion = new mysqli($this->host, $this->user, $this->password, DB_NAME);
+      if ($this->conexion->connect_error) {
+          return "Error:" . $this->conexion->connect_error;
+      }else {
+          return "OK";
+      }
+  }
 
     function ejecutarQuery($query){
         return $this->conexion->query($query);

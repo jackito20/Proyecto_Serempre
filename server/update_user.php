@@ -14,13 +14,17 @@ if (isset($_SESSION['user'])) {
     if($actualPassword!="" && $data["pass"]!="" && $passwordConfirm!=""){
         if($data["pass"]==$passwordConfirm){
             $user = new User();
-            if($res = $user->update($data)){
-                $response["msg"] = "OK";
-                //$response["msg"] = $res;
+            $user->findById($data["id"]);
+            if(password_verify($actualPassword, $user->getPassword())){
+                if($res = $user->update($data)){
+                    $response["msg"] = "OK";
+                    //$response["msg"] = $res;
+                }else{
+                    $response["msg"] = "Error saving the new user";
+                }
             }else{
-                $response["msg"] = "Error saving the new user";
+                $response["msg"] = "La contraseña actual es incorrecta";
             }
-            
         }
     }
 }else {

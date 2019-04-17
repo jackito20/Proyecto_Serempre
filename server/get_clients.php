@@ -1,6 +1,6 @@
 <?php
 require('../server/models/client.php');
-require('../server/constants.php');
+include_once('../config.php');
 
 session_start();
 
@@ -28,11 +28,9 @@ if (isset($_SESSION['user'])) {
     }else{
         $response["msg"] = "Error en clients";
     }
-    //$response["msg"] = "OK";
 }else {
     $response['msg']= 'session';
 }    
-//$response["msg"] = "OK";
 echo json_encode($response);
 
 

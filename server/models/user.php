@@ -14,8 +14,11 @@ class User{
     }*/
 
     function initConexion(){
-        $this->conexion = new ConectorBD("localhost", "root", "root");
-        $this->conexion->initConexion("serempre");
+        /*$this->conexion = new ConectorBD("localhost", "root", "root");
+        $this->conexion->initConexion("serempre");*/
+
+        $this->conexion = new ConectorBD();
+        $this->conexion->initConexion();
     }
 
     function save($data){
@@ -56,6 +59,27 @@ class User{
                 $table=["users"];
                 $attributes =  ["name", "pass", "id"];
                 $condition = "WHERE name LIKE '".$name."'";
+                if($res = $this->conexion->consultar($table,$attributes, $condition)){
+                    $res = $res->fetch_assoc();
+                    $this->name = $res["name"];
+                    $this->id = $res["id"];
+                    $this->password = $res["pass"];
+                    $this->conexion->cerrarConexion();
+                    return true;
+                }
+                $this->conexion->cerrarConexion();
+            }
+        }
+        return false;
+    }
+
+    function findById($id){
+        if($id!=""){
+            $this->initConexion();
+            if($this->conexion){
+                $table=["users"];
+                $attributes =  ["name", "pass", "id"];
+                $condition = "WHERE id LIKE '".$id."'";
                 if($res = $this->conexion->consultar($table,$attributes, $condition)){
                     $res = $res->fetch_assoc();
                     $this->name = $res["name"];

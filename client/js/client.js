@@ -113,11 +113,16 @@ function listClients(){
         contentType: false,
         type: 'GET',
         success: (data) =>{
-        if (data.msg=="OK") {
-            showClientList(data, page);
-          }else {
-            alert(data.msg)
-          }
+            if (data.msg=="OK") {
+                $(".alert-info").css("display", "none");
+                console.log(data);
+                showClientList(data, page);
+            }else if(data.msg=="session"){
+                alert("No se ha iniciado sesion");
+                window.location.href = '../login.html';
+            }else {
+                $(".alert-info").css("display", "block");
+            }
         },
         error: function(){
           alert("Error");
