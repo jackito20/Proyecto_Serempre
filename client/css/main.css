@@ -16,4 +16,9 @@
 .header{
     margin-top: 2rem;
     margin-bottom: 2rem;
+    padding: 0 2rem;
+}
+
+#headerLogo{
+    width: 15rem;
 }
