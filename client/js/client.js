@@ -71,7 +71,7 @@ function showClientList(data){
     $("tbody").empty();
     for (i = 0; i < data.clients.length; i++) {
         client = data.clients[i];
-        $("tbody").append("<tr><th scope='row'>"+(i+1)+"</th><td>"+client["code"]+"</td><td>"+client["name"]+"</td><td>"+client["city_id"]+"</td><td><a href='' id='update"+i+"'>Editar</a><a href='' id='delete"+i+"'>    Eliminar</a></td></tr>")
+        $("tbody").append("<tr><th scope='row'>"+(i+1)+"</th><td>"+client["code"]+"</td><td>"+client["name"]+"</td><td>"+client["city"]["name"]+"</td><td><a href='' id='update"+i+"'>Editar</a><a href='' id='delete"+i+"'>    Eliminar</a></td></tr>")
         $("#update"+i).click(function(event){
             event.preventDefault();
             showUpdateClient(data.clients, this)
@@ -134,7 +134,7 @@ function showClientForm(defaultCity = ""){
 
 function showUpdateClient(clients, index){
     index=parseInt($(index).attr("id").split("update")[1]);
-    showClientForm(clients[index]["city_id"]);
+    showClientForm(clients[index]["city"]["id"]);
     $("#inputCode").attr("value", clients[index]["code"]);
     $("#inputName").attr("value", clients[index]["name"]);
     $("#inputId").attr("value", clients[index]["id"]);

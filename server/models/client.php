@@ -1,5 +1,6 @@
 <?php
-include("conexion.php");
+include_once("conexion.php");
+include_once("city.php");
 
 class Client{
     private $name;
@@ -84,11 +85,17 @@ class Client{
                 $i=0;
                 $clients = [];
                 while($fila = $res->fetch_assoc()){
+                    $city = new City();
+                    $city->findById($fila["city_id"]);
                     $client = [
                         "id" => $fila["id"],
                         "code" => $fila["cod"],
                         "name" => $fila["name"], 
-                        "city_id" => $fila["city_id"]
+                        "city" => [
+                            "id" => $city->getId(),
+                            "cod" => $city->getCode(),
+                            "name" => $city->getName()
+                        ]
                     ];
                     
                     array_push($clients, $client);

@@ -1,5 +1,5 @@
 <?php
-include("conexion.php");
+include_once("conexion.php");
 
 class City{
     private $name;
@@ -23,7 +23,7 @@ class City{
                     $res = $res->fetch_assoc();
                     $this->name = $res["name"];
                     $this->id = $res["id"];
-                    $this->code = $res["code"];
+                    $this->code = $res["cod"];
                     $this->conexion->cerrarConexion();
                     return true;
                 }

@@ -1,5 +1,5 @@
 <?php
-include("conexion.php");
+include_once("conexion.php");
 
 class User{
     private $name;
@@ -26,6 +26,22 @@ class User{
                 if($res = $this->conexion->insertData("users", $data)){
                     $this->conexion->cerrarConexion();
                     return true;
+                }
+                $this->conexion->cerrarConexion();
+            }
+        }
+        return false;
+    }
+
+    function update($data){
+        if(isset($data["pass"]) && isset($data["id"])){
+            $this->initConexion();
+            if($this->conexion){
+                $data["pass"] = "'".password_hash($data["pass"], PASSWORD_DEFAULT)."'";
+                $condition = "id LIKE ".$data["id"];
+                if($res = $this->conexion->actualizarRegistro("users", $data, $condition)){
+                    $this->conexion->cerrarConexion();
+                    return $res;
                 }
                 $this->conexion->cerrarConexion();
             }
