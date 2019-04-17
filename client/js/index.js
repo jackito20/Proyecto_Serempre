@@ -24,7 +24,7 @@ function logOut(){
         type: 'GET',
         success: () =>{
           alert("Cerrado session...");
-          window.location.href = '../login.html';
+          window.location.href = '../index.html';
         },
         error: function(){
           alert("Error");

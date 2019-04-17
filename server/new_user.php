@@ -8,7 +8,7 @@ $passwordConfirm = $_POST["passwordConfirm"];
 if($data["name"]!="" && $data["pass"]!="" && $passwordConfirm!=""){
     if($data["pass"]==$passwordConfirm){
         $user = new User();
-        if($user->save($data)){
+        if($res = $user->save($data)){
             $response["msg"] = "OK";
         }else{
             $response["msg"] = "Error saving the new user";

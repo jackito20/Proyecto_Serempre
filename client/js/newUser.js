@@ -27,7 +27,7 @@ function formValidate(){
             success: (data) =>{
               if (data.msg=="OK") {
                 alert('The user was registered succesfully');
-                window.location.href = '../login.html';
+                window.location.href = '../index.html';
               }else {
                 alert(data.msg)
               }

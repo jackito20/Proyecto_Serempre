@@ -8,26 +8,11 @@ class ConectorBD
     private $password;
     private $conexion;
 
-    /*function __construct($host, $user, $password){
-        $this->host = $host;
-        $this->user = $user;
-        $this->password = $password;
-    }*/
-
     function __construct(){
       $this->host = DB_HOST;
       $this->user = DB_USER;
       $this->password = DB_PASSWORD;
     }
-
-    /*function initConexion($nombre_db){
-        $this->conexion = new mysqli($this->host, $this->user, $this->password, $nombre_db);
-        if ($this->conexion->connect_error) {
-            return "Error:" . $this->conexion->connect_error;
-        }else {
-            return "OK";
-        }
-    }*/
 
     function initConexion(){
       $this->conexion = new mysqli($this->host, $this->user, $this->password, DB_NAME);
@@ -51,7 +36,7 @@ class ConectorBD
     }
 
     function insertData($tabla, $data){
-      $sql = 'INSERT INTO '.$tabla.' (';
+      $sql = 'INSERT INTO '.DB_NAME.'.'.$tabla.' (';
       $i = 1;
       foreach ($data as $key => $value) {
         $sql .= $key;
@@ -75,7 +60,7 @@ class ConectorBD
     }
 
     function actualizarRegistro($tabla, $data, $condicion){
-      $sql = 'UPDATE '.$tabla.' SET ';
+      $sql = 'UPDATE '.DB_NAME.'.'.$tabla.' SET ';
       $i=1;
       foreach ($data as $key => $value) {
         $sql .= $key.'='.$value;
@@ -88,7 +73,7 @@ class ConectorBD
     }
 
     function eliminarRegistro($tabla, $condicion){
-      $sql = "DELETE FROM ".$tabla." WHERE ".$condicion.";";
+      $sql = "DELETE FROM ".DB_NAME.".".$tabla." WHERE ".$condicion.";";
       return $this->ejecutarQuery($sql);
     }
 
@@ -106,7 +91,7 @@ class ConectorBD
       $b = array_keys($tablas);
       $ultima_key = end($b);
       foreach ($tablas as $key => $value) {
-        $sql .= $value;
+        $sql .= DB_NAME.".".$value;
         if ($key!=$ultima_key) {
           $sql.=", ";
         }else $sql .= " ";

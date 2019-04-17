@@ -43,7 +43,7 @@ function addClient(){
                     listClients();
                 }else if(data.msg=="session"){
                     alert("No se ha iniciado sesion");
-                    window.location.href = '../login.html';
+                    window.location.href = '../index.html';
                 }else {
                     alert(data.msg)
                 }
@@ -119,7 +119,7 @@ function listClients(){
                 showClientList(data, page);
             }else if(data.msg=="session"){
                 alert("No se ha iniciado sesion");
-                window.location.href = '../login.html';
+                window.location.href = '../index.html';
             }else {
                 $(".alert-info").css("display", "block");
             }
@@ -170,7 +170,7 @@ function updateClient(){
                     listClients();
                 }else if(data.msg=="session"){
                     alert("No se ha iniciado sesion");
-                    window.location.href = '../login.html';
+                    window.location.href = '../index.html';
                 }else {
                     alert(data.msg)
                 }
@@ -201,7 +201,7 @@ function deleteClient(clients, index){
                 listClients();
             }else if(data.msg=="session"){
                 alert("No se ha iniciado sesion");
-                window.location.href = '../login.html';
+                window.location.href = '../index.html';
             }else {
                 alert(data.msg)
             }

@@ -30,7 +30,7 @@ function formValidate(){
                 window.location.href = '../client/index.html';
               }else if(data.msg=="session"){
                 alert("No se ha iniciado sesion");
-                window.location.href = '../login.html';
+                window.location.href = '../index.html';
               }else {
                 alert(data.msg)
               }
