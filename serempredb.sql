@@ -72,10 +72,9 @@ SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
-
 INSERT INTO `serempre`.`cities` (`cod`, `name`) VALUES ('001', 'Bogota');
 INSERT INTO `serempre`.`cities` (`cod`, `name`) VALUES ('002', 'Medellin');
 INSERT INTO `serempre`.`cities` (`cod`, `name`) VALUES ('003', 'Cucuta');
-INSERT INTO `serempre`.`cities` (`cod`, `name`) VALUES ('004', 'Barranquilla');
-INSERT INTO `serempre`.`cities` (`cod`, `name`) VALUES ('005', 'Bucaramanga');
+INSERT INTO `serempre`.`cities` (`cod`, `name`) VALUES ('004', 'Bucaramanga');
+INSERT INTO `serempre`.`cities` (`cod`, `name`) VALUES ('005', 'Barranquilla');
 INSERT INTO `serempre`.`cities` (`cod`, `name`) VALUES ('006', 'Cali');
